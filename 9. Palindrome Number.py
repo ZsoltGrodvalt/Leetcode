@@ -8,8 +8,9 @@ def isPalindrome(x):
     idx = 0
     while idx <= (size/2):
         if string[idx] != string[size-idx-1]:
-            return 'false'
-    return 'T=true'
+            return False
+        idx += 1
+    return True
 
 x = 121
 print(isPalindrome(x))
