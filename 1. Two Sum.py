@@ -1,3 +1,4 @@
+# Return the indeces of the two numbers whose sum is the target. They have to be different indeces.
 def solution(nums, target):
     size = len(nums)
     for idx1 in range(size):
