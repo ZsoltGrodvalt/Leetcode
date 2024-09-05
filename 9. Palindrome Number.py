@@ -2,9 +2,7 @@
 
 def isPalindrome(x):
     string = str(x)
-    print(string)
     size = len(string)
-    print(size)
     idx = 0
     while idx <= (size/2):
         if string[idx] != string[size-idx-1]:
