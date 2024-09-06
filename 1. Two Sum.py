@@ -2,8 +2,9 @@
 def solution(nums, target):
     size = len(nums)
     for idx1 in range(size):
+        diff = target - nums[idx1]
         for idx2 in range(idx1+1,size):
-            if ((nums[idx1]+nums[idx2])==target):
+            if (nums[idx2]==diff):
                 return [idx1,idx2]
 
 nums = [2,7,11,15]
