@@ -12,6 +12,20 @@ def addition(n1, n2, remainder_prev):
     # print(f'v:{value}, r:{remainder}')
     return value, remainder
 
+def rest(l_cur, remainder, sum_cur):
+    while l_cur.next != None:
+        # print(f'sum_head = {sum_head.val}')
+        l_cur = l_cur.next
+        sum_new = ListNode()
+        sum_cur.next = sum_new
+        sum_cur = sum_new
+        sum_cur.val, remainder = addition(l_cur.val, 0, remainder)
+    if remainder != 0:
+        sum_new = ListNode()
+        sum_cur.next = sum_new
+        sum_cur = sum_new
+        sum_cur.val = remainder
+
 
 def addTwoNumbers(l1, l2):
     sum_head = ListNode()
@@ -28,29 +42,51 @@ def addTwoNumbers(l1, l2):
         sum_new = ListNode()
         sum_cur.next = sum_new
         sum_cur = sum_new
-    # l1 has ended
-
-    # l2 has ended
-
-    # both have ended
-
 
     # exited, but we have to add the last two numbers
     sum_cur.val, remainder = addition(l1_cur.val, l2_cur.val, remainder)
-    # only works if the lengths are the same
-    answer = []
-    sum_cur = sum_head
-    while sum_cur.next != None:
-        answer.append(sum_cur.val)
-        sum_cur = sum_cur.next
-    answer.append(sum_cur.val)
-    return answer 
 
-n1 = ListNode(4)
-n2 = ListNode(6,n1)
-l2 = ListNode(5,n2)
-n4 = ListNode(3)
-n5 = ListNode(4,n4)
-l1 = ListNode(2,n5)
+    # both have ended
+    if (l1_cur.next == None) & (l2_cur.next == None):
+        if remainder != 0:
+            sum_new = ListNode()
+            sum_cur.next = sum_new
+            sum_cur = sum_new
+            sum_cur.val = remainder
 
-print(addTwoNumbers(l1,l2))
+    # l1 has ended
+    if (l1_cur.next == None) & (l2_cur.next != None):
+        rest(l2_cur, remainder, sum_cur)
+
+    # l2 has ended
+    if (l1_cur.next != None) & (l2_cur.next == None):
+        rest(l1_cur, remainder, sum_cur)
+    
+    return sum_head
+
+
+
+#####################################################
+# Test case:
+# l24 = ListNode(6)
+l23 = ListNode(4)
+l22 = ListNode(6,l23)
+l21 = ListNode(5,l22)
+l13 = ListNode(3)
+l12 = ListNode(4,l13)
+l11 = ListNode(2,l12)
+
+def printList(head):
+    node = ListNode()
+    node = head
+    print(f'[', end='')
+    while node.next != None:
+        print(f'{node.val},',end='')
+        node = node.next
+    print(f'{node.val}]')
+
+answer = addTwoNumbers(l11,l21)
+printList(l11)
+printList(l21)
+printList(answer)
+#####################################################
