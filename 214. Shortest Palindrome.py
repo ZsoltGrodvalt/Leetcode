@@ -1,11 +1,8 @@
 def isWordPalindrome(word):
-    length = len(word)
-    for i in range(0,length//2):
-        l = word[i]
-        r = word[length-1-i]
-        if l != r:
-            return False
-    return True
+            if word == word[::-1]:
+                return True
+            else:
+                return False
 
 def shortestPal(s):
     length = len(s)
