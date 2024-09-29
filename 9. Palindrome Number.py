@@ -2,13 +2,14 @@
 
 def isPalindrome(x):
     string = str(x)
-    size = len(string)
-    idx = 0
-    while idx < (size/2):
-        if string[idx] != string[size-idx-1]:
-            return False
-        idx += 1
-    return True
+    # size = len(string)
+    # idx = 0
+    # while idx < (size/2):
+    #     if string[idx] != string[size-idx-1]:
+    #         return False
+    #     idx += 1
+    # return True
+    return string == string[::-1]
 
 x = 121
 print(isPalindrome(x))
