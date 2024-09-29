@@ -30,3 +30,6 @@ employee = pd.DataFrame({   'id':[1,2,3,4,5],
                             'departmentId':[1,1,2,2,1]})
 department = pd.DataFrame({   'id':[1,2],
                             'name':['IT','Sales']})
+
+scores = pd.DataFrame({ 'id':[1,2,3,4,5,6],
+                        'score':[3.50,3.65,4.00,3.85,4.00,3.65]})

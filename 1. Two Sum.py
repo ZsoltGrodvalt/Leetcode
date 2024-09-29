@@ -18,10 +18,11 @@ def solution2(nums, target):
             return [idx, dict[difference]]
         else:
             dict[num] = idx
+        # print(dict)
 
 nums = [2,7,11,15]
-target = 9
-print(solution1(nums, target))
+target = 26
+print(solution2(nums, target))
 
 nums = [3,2,4]
 target = 6
